@@ -23,39 +23,34 @@ public class AdditionalConfig {
     public static final String INJECT_FileSystemNFS = "edu.umd.enpm614.filesystem.nfs";
     public static final String INJECT_ConnectionJDBC = "edu.umd.enpm614.connection.jdbc";
 
-    private FrontendGWT frontendGWT;
+
     @Bean(name = INJECT_FrontendGWT)
-    public Frontend getFrontend() {
+    public Frontend getFrontend(FrontendGWT frontendGWT) {
         return frontendGWT;
     }
 
-    private MiddlewareJBoss middlewareJBoss;
     @Bean(name = INJECT_MiddlewareJBoss)
-    public Middleware getMiddleware() {
+    public Middleware getMiddleware(MiddlewareJBoss middlewareJBoss) {
         return middlewareJBoss;
     }
 
-    private PersistanceOracle persistanceOracle;
     @Bean(name = INJECT_PersistenceOracle)
-    public Persistance getPersistence() {
+    public Persistance getPersistence(PersistanceOracle persistanceOracle) {
         return persistanceOracle;
     }
 
-    private AuthenticationTSL authenticationTSL;
     @Bean(name = INJECT_AuthenticationTSL)
-    public Authentication getAuthentication() {
+    public Authentication getAuthentication(AuthenticationTSL authenticationTSL) {
         return authenticationTSL;
     }
 
-    private FileSystemNFS fileSystemNFS;
     @Bean(name = INJECT_FileSystemNFS)
-    public FileSystem getFilesystem() {
+    public FileSystem getFilesystem(FileSystemNFS fileSystemNFS) {
         return fileSystemNFS;
     }
 
-    private ConnectionJDBC connectionJDBC;
     @Bean(name = INJECT_ConnectionJDBC)
-    public Connection getConnection() {
+    public Connection getConnection(ConnectionJDBC connectionJDBC) {
         return connectionJDBC;
     }
 }

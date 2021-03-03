@@ -28,45 +28,40 @@ public class StandardConfig {
     public static final String INJECT_ConnectionPooled = "edu.umd.enpm614.connection.pooled";
 
 
-    private FrontendHTML frontendHTML;
     @Primary
     @Bean(name = INJECT_FrontendHTML)
-    public Frontend getFrontend() {
-        return frontendHTML;
+    public Frontend getFrontend(FrontendHTML frontendHTML) {
+        return frontendHTML ;
     }
 
-    private MiddlewareTomcat middlewareTomcat;
     @Primary
     @Bean(name = INJECT_MiddlewareTomcat)
-    public Middleware getMiddleware() {
+    public Middleware getMiddleware(MiddlewareTomcat middlewareTomcat) {
         return middlewareTomcat;
     }
 
-    private PersistanceMySQL persistanceMySQL;
     @Primary
     @Bean(name = INJECT_PersistenceMySQL)
-    public Persistance getPersistence() {
+    public Persistance getPersistence(PersistanceMySQL persistanceMySQL) {
         return persistanceMySQL;
     }
 
-    private AuthenticationSSL authenticationSSL;
+
     @Primary
     @Bean(name = INJECT_AuthenticationSSL)
-    public Authentication getAuthentication() {
+    public Authentication getAuthentication(Authentication authenticationSSL) {
         return authenticationSSL;
     }
 
-    private FileSystemNTFS fileSystemNTFS;
     @Primary
     @Bean(name = INJECT_FileSystemNTFS)
-    public FileSystem getFilesystem() {
+    public FileSystem getFilesystem(FileSystemNTFS fileSystemNTFS) {
         return fileSystemNTFS;
     }
 
-    private ConnectionPooled connectionPooled;
     @Primary
     @Bean(name = INJECT_ConnectionPooled)
-    public Connection getConnection() {
+    public Connection getConnection(ConnectionPooled connectionPooled) {
         return connectionPooled;
     }
 
