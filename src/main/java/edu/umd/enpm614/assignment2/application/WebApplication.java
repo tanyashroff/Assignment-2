@@ -1,23 +1,37 @@
 package edu.umd.enpm614.assignment2.application;
 
+import edu.umd.enpm614.assignment2.interfaces.Frontend;
+import edu.umd.enpm614.assignment2.interfaces.Middleware;
+import edu.umd.enpm614.assignment2.interfaces.Persistance;
 import org.springframework.stereotype.Component;
 
 import javax.inject.Inject;
 
 @Component
-public class WebApplication {
-	private WebServer server;
+public class WebServer {
+	private final Frontend frontend;
+	private final Middleware middleware;
+	private final Persistance persistance;
 
 	@Inject
-	public WebApplication(WebServer server) {
-		this.server = server;
+	public WebServer(Frontend frontend, Middleware middleware, Persistance persistance) {
+		this.frontend = frontend;
+		this.middleware = middleware;
+		this.persistance = persistance;
+	}
+	
+	public String getType() {
+		return "WebServer";
 	}
 
-	public void run() {
-		System.out.println("starting web application...");
-
-		server.run();
+	public boolean run() {
+		System.out.println("running " + this.getType());
 		
-		System.out.println("web application finished.");
+		// invoke services here if applicable
+		frontend.run();
+		middleware.run();
+		persistance.run();
+		
+		return true;
 	}
 }
