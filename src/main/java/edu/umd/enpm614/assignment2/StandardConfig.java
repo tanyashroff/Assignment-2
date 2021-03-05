@@ -46,7 +46,6 @@ public class StandardConfig {
         return persistanceMySQL;
     }
 
-
     @Primary
     @Bean(name = INJECT_AuthenticationSSL)
     public Authentication getAuthentication(Authentication authenticationSSL) {
@@ -64,5 +63,4 @@ public class StandardConfig {
     public Connection getConnection(ConnectionPooled connectionPooled) {
         return connectionPooled;
     }
-
 }

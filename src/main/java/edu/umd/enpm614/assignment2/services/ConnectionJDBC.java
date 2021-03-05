@@ -1,7 +1,9 @@
 package edu.umd.enpm614.assignment2.services;
 
 import edu.umd.enpm614.assignment2.interfaces.Connection;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ConnectionJDBC implements Connection {
 	@Override
 	public String getType() {
