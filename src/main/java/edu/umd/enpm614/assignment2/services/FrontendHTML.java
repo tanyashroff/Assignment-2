@@ -12,9 +12,7 @@ public class FrontendHTML implements Frontend {
 	private final Authentication authentication;
 
 	@Inject
-	public FrontendHTML(Authentication authentication) {
-		this.authentication = authentication;
-	}
+	public FrontendHTML(Authentication authentication) { this.authentication = authentication; }
 
 	@Override
 	public String getType() {
